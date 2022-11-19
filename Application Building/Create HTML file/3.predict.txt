@@ -1,0 +1,100 @@
+<!doctype HTML>
+<html >
+	<head>
+		<title>ecg</title>
+		<meta charset="UTF-8">
+        	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			display:flex;
+    			justify-content:center;
+   			align-items: center;
+    			flex-direction:column;
+    			gap:10px;
+    			background-color:rgb(187, 97, 97);
+			background-image:url(ecg_back.jpg);
+
+    			height:100%
+    }
+		#display-image{
+   		
+		 	width:375px;
+    			height:211px;
+    			border:1px solid black;
+    			background-position:center;
+			 background-color: white;
+    			background-size:cover;
+		#align{
+    			justify-content: center;
+    			align-items:center
+			}
+		
+}
+		a:link{
+    			color:white;
+   			 background-color:transparent;
+    			text-decoration:none;
+			}
+		a:visited{
+   			 color:white;
+    			background-color: transparent;
+    			text-decoration:none;
+
+			}
+		a:active{
+    			color:red;
+    			background-color: transparent;
+			}
+
+}
+		
+	</style>
+<div style='text-align:right'>
+        <p ><bgcolor='white'>
+        <a href>Home</a>
+        <a href>Info</a>
+        <a href>Predict</a>
+        </p>
+        </div>
+
+		
+        
+	</head>
+	<body >
+		
+		<div id=align><center>
+		
+		<h1><b><center>ECG Arrhythmia Classification</center></b></h1>
+		
+
+		<h3><label> Upload the image:</label></h3>
+        	<input type="file" id="image-input" accept="image/png,image/jpeg,image/jpg">
+       	 <div id="display-image"></div>
+        	<input type="submit" value="predict">
+        
+
+        <script>
+		
+		
+		const image_input = document.querySelector("#image-input");
+
+image_input.addEventListener("change", function() {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    const uploaded_image = reader.result;
+    document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+  });
+  reader.readAsDataURL(this.files[0]);
+});
+
+
+
+            
+        </script>
+	<center>
+	<div>
+		<h3><marquee behavior="alternate" scroll delay=20 bgcolor=orange>To upload the ECG image click on Choose File Option specified above and then click on predict option to predict the result</h3>
+		</marquee>
+	</body>
+</html>
